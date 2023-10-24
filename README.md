@@ -1,4 +1,4 @@
-# Tugas Minggu 8
+# Tugas Praktikum 1
 
 ## Langkah 1: Siapkan project baru
 
@@ -308,5 +308,4 @@ Sesuaikan dan modifikasi tampilan sehingga menjadi aplikasi yang menarik. Selain
 
 Selesaikan Praktikum Navigasi dan Rute tersebut, lalu dokumentasikan dan push ke repository Anda berupa screenshot setiap hasil pekerjaan beserta penjelasannya di file README.md. Kumpulkan link commit repository GitHub Anda ke spreadsheet yang telah disediakan!
 
-Output:</br>
-![gif](assets/output2.gif)
+![Hasil Akhir](assets/output2.gif)
