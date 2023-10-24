@@ -6,7 +6,7 @@ Sebelum melanjutkan praktikum, buatlah sebuah project baru Flutter dengan nama b
 
 **Jawaban**
 
-![Alt text](docs/lankah1.png)
+![Alt text](assets/lankah1.png)
 
 ## Langkah 2: Mendefinisikan Route
 
@@ -220,4 +220,93 @@ class ItemPage extends StatelessWidget {
 ```
 
 Output:</br>
-![gif](docs/output.gif)
+![gif](assets/output.gif)
+
+
+# Tugas Praktikum 2
+
+## Nomor 1
+
+Untuk melakukan pengiriman data ke halaman berikutnya, cukup menambahkan informasi arguments pada penggunaan Navigator. Perbarui kode pada bagian Navigator menjadi seperti berikut.
+
+```dart
+@override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(8),
+      child: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return Material(
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, routeName, arguments: item);
+              },
+              child: Card(
+                child: Container(
+                  margin: const EdgeInsets.all(8),
+                  child: Row(
+                    children: [
+                      Expanded(child: Text(item.name.toString())),
+                      Expanded(
+                        child: Text(
+                          item.price.toString(),
+                          textAlign: TextAlign.end,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+```
+
+## Nomor 2
+
+Pembacaan nilai yang dikirimkan pada halaman sebelumnya dapat dilakukan menggunakan ModalRoute. Tambahkan kode berikut pada blok fungsi build dalam halaman ItemPage. Setelah nilai didapatkan, anda dapat menggunakannya seperti penggunaan variabel pada umumnya. (https://docs.flutter.dev/cookbook/navigation/navigate-with-arguments)
+
+```dart
+class ItemPage extends StatelessWidget {
+  const ItemPage({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final itemArgs = ModalRoute.of(context)!.settings.arguments as Item;
+    return Container(
+      margin: const EdgeInsets.all(8),
+      child: Card(
+        child: Row(
+          children: [
+            Text(itemArgs.name.toString()),
+            Text(itemArgs.price.toString())
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+## Nomor 3
+
+Pada hasil akhir dari aplikasi belanja yang telah anda selesaikan, tambahkan atribut foto produk, stok, dan rating. Ubahlah tampilan menjadi GridView seperti di aplikasi marketplace pada umumnya.
+
+## Nomor 4
+
+Silakan implementasikan Hero widget pada aplikasi belanja Anda dengan mempelajari dari sumber ini: https://docs.flutter.dev/cookbook/navigation/hero-animations
+
+## Nomor 5
+
+Sesuaikan dan modifikasi tampilan sehingga menjadi aplikasi yang menarik. Selain itu, pecah widget menjadi kode yang lebih kecil. Tambahkan Nama dan NIM di footer aplikasi belanja Anda.
+
+## Nomor 6
+
+Selesaikan Praktikum Navigasi dan Rute tersebut, lalu dokumentasikan dan push ke repository Anda berupa screenshot setiap hasil pekerjaan beserta penjelasannya di file README.md. Kumpulkan link commit repository GitHub Anda ke spreadsheet yang telah disediakan!
+
+Output:</br>
+![gif](assets/output2.gif)
